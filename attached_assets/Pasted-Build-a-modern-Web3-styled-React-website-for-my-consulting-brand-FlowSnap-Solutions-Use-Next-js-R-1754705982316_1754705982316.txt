@@ -1,0 +1,151 @@
+Build a modern Web3‑styled React website for my consulting brand FlowSnap Solutions. Use Next.js + React + Tailwind CSS (TypeScript preferred), with a clean, futuristic UI (glassmorphism, subtle gradients, soft shadows, geometric shapes), responsive on mobile/desktop, and accessible (WCAG AA). Include dark mode.
+
+Brand
+Logo: If I upload a file, use it in the navbar and footer. If not, render a wordmark “FlowSnap Solutions” with a minimal gear + 3 arrows icon (SVG) to the left.
+
+Fonts: Headings—Inter or Sora; Body—Inter or Roboto.
+
+Colors:
+
+Primary Blue #1E73BE
+
+Secondary Soft Green #6BBE92
+
+Accent Orange (CTAs) #F28C28
+
+Background Light Grey #F5F5F5 (light mode) / near‑black in dark mode
+
+Text Charcoal #333333
+
+Favicon: Generate from the gear/arrows icon.
+
+Navigation (sticky)
+Home, About, Services, Blog, Contact. CTA button on the right: “Get Started Today”.
+
+Pages & Content
+Home
+
+Hero:
+
+Headline: “Simple Tools. Smoother Days.”
+
+Sub‑headline: “Helping small service businesses save time with easy, affordable automation.”
+
+Primary CTA (accent orange): Get Started Today → Contact page
+
+Secondary CTA (ghost): View Services → Services
+
+Services teaser cards (3):
+
+Smart Booking System Setup — “Branded form, calendar sync, auto‑confirmation, simple job tracker.”
+
+Automated Quote & Follow‑Up — “Quote tracker + polite, timed reminders so leads don’t go cold.”
+
+Client Feedback & Reviews — “Auto thank‑you + review requests when a job is marked complete.”
+
+Trust indicators section with badges/cards:
+
+“Ontario‑based, practical, one‑on‑one setup”
+
+“Built on tools you already use (Google Workspace / Microsoft 365)”
+
+“Clear pricing. No surprise subscriptions.”
+
+Short testimonial placeholders (2–3).
+
+Featured Content: card linking to the blog post “3 Ways to Save Time with Automated Bookings” with “Read more”.
+
+Footer: quick nav, email adjam@flowsnap.ca, placeholder phone 555‑686‑5566, copyright.
+
+About
+
+Brand story: one‑on‑one, jargon‑free setup for micro & solo service businesses in Ontario; background in IT/support/customer service; focus on time‑savings and simplicity.
+
+Persona callout card (optional): “Lisa – solo cleaner in Brampton; WhatsApp + Google Calendar; needs simple, mobile‑friendly tools.”
+
+Services
+
+Three sections with iconography, bullet deliverables, and transparent pricing tiles:
+
+Smart Booking System Setup — $120 CAD
+
+Quote & Follow‑Up Automation — $150 CAD
+
+Review Request System — $110 CAD
+
+Note: “Total setup $380 CAD. Optional tools: Zapier Starter ~$29/mo; Google Workspace ~$7–$10/mo. Free tiers used where possible.”
+
+Each service card has a “Book a Free Chat” CTA linking to Contact.
+
+Blog
+
+Simple blog index (cards). Include one full post:
+
+Title: 3 Ways to Save Time with Automated Bookings
+
+Slug: /blog/automated-bookings-time-savers
+
+Content: (use this text)
+
+Intro on busy days, why automation helps.
+
+1) Use an Online Booking Form (Google Forms/Microsoft Forms; keep fields minimal)
+
+2) Sync with Your Calendar (Google/Outlook; avoid double‑booking; share if collaborating)
+
+3) Automatic Confirmations (Zapier/Power Automate; instant email/WhatsApp; reminder reduces no‑shows)
+
+Closing: reliability + trust; offer FlowSnap setup using tools clients already have.
+
+Blog system can be Markdown files in /content/blog with frontmatter (title, date, excerpt, tags, cover).
+
+Contact
+
+Conversion‑focused form with these fields: Name, Email, Phone (optional), Business Name, Message.
+
+Submit -> success toast, send to site owner email (stub API route), store to /api/contact endpoint (dummy).
+
+Side panel: “Prefer email?” adjam@flowsnap.ca; mini FAQ (1–2 items).
+
+Components & UX
+UI kit: Button, Badge, Card, SectionHeader, Testimonial, PricingTile, IconList, BlogCard, FormInput/Textarea.
+
+Animations: subtle framer‑motion reveals on hero, cards, and CTA hover micro‑interactions.
+
+Glassmorphism/Gradient accents on hero and CTA sections for Web3 feel.
+
+Tech/Structure
+Next.js App Router, /app directory.
+
+Tailwind CSS with dark mode class strategy.
+
+MDX or markdown for blog; simple blog listing + post page.
+
+Reusable layout with metadata <head> per page.
+
+SEO: next‑seo or equivalent; Open Graph images; JSON‑LD org + article schema.
+
+Performance: optimize images with next/image; lazy‑load non‑critical sections.
+
+Accessibility: semantic tags, focus states, aria labels, color contrast checks.
+
+Content placement checklist (must match my assignment)
+Homepage: Headline, Sub‑headline, CTA, Trust indicators ✅
+
+Navigation: About, Services, Contact, Blog ✅
+
+Logo & color palette applied site‑wide ✅
+
+Publishable content (blog post above) visible on Blog and featured on Home ✅
+
+Extras
+Dark/light toggle in navbar.
+
+Sticky CTA button on mobile (“Get Started”).
+
+Simple 404 page with link back Home.
+
+Delivery
+Provide the complete Next.js project in a Git repo or downloadable zip.
+
+Include a short README with setup steps (npm i, npm run dev) and how to add new blog posts.

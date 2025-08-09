@@ -1,0 +1,737 @@
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FlowSnap Solutions - Simple Tools. Smoother Days.</title>
+    <meta name="description" content="Helping small service businesses save time with easy, affordable automation. Ontario-based consulting for micro & solo service businesses.">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="FlowSnap Solutions - Simple Tools. Smoother Days.">
+    <meta property="og:description" content="Helping small service businesses save time with easy, affordable automation.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://flowsnap.ca">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#1E73BE',
+                        secondary: '#6BBE92',
+                        accent: '#F28C28',
+                        charcoal: '#333333',
+                        'glass-light': 'rgba(255, 255, 255, 0.1)',
+                        'glass-dark': 'rgba(255, 255, 255, 0.05)',
+                    },
+                    fontFamily: {
+                        'inter': ['Inter', 'sans-serif'],
+                    },
+                    backdropBlur: {
+                        'xs': '2px',
+                        'glass': '12px',
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'glow': 'glow 2s ease-in-out infinite alternate',
+                        'slide-up': 'slideUp 0.6s ease-out',
+                        'fade-in': 'fadeIn 0.8s ease-out',
+                    },
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        @keyframes glow {
+            from { box-shadow: 0 0 20px rgba(30, 115, 190, 0.3); }
+            to { box-shadow: 0 0 30px rgba(30, 115, 190, 0.6); }
+        }
+        
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .dark .glass-effect {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .geometric-bg {
+            background-image: 
+                radial-gradient(circle at 25% 25%, rgba(30, 115, 190, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 75% 75%, rgba(107, 190, 146, 0.1) 0%, transparent 50%);
+        }
+        
+        .gradient-text {
+            background: linear-gradient(135deg, #1E73BE, #6BBE92);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-50 dark:bg-gray-900 text-charcoal dark:text-gray-100 font-inter transition-colors duration-300">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 glass-effect">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <div class="flex items-center space-x-3">
+                    <!-- Logo image with gear icon -->
+                    <div class="w-10 h-10 relative">
+                        <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-primary to-secondary flex items-center justify-center">
+                            <i class="fas fa-cog text-white text-lg animate-spin" style="animation-duration: 8s;"></i>
+                        </div>
+                        <div class="absolute -top-1 -right-1 w-4 h-4 bg-accent rounded-full flex items-center justify-center">
+                            <i class="fas fa-arrow-right text-white text-xs"></i>
+                        </div>
+                    </div>
+                    <span class="text-xl font-bold gradient-text">FlowSnap Solutions</span>
+                </div>
+                
+                <!-- Navigation Links -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#home" class="hover:text-primary transition-colors duration-200">Home</a>
+                    <a href="#about" class="hover:text-primary transition-colors duration-200">About</a>
+                    <a href="#services" class="hover:text-primary transition-colors duration-200">Services</a>
+                    <a href="#blog" class="hover:text-primary transition-colors duration-200">Blog</a>
+                    <a href="#contact" class="hover:text-primary transition-colors duration-200">Contact</a>
+                    
+                    <!-- Dark Mode Toggle -->
+                    <button id="darkToggle" class="p-2 rounded-lg glass-effect hover:bg-opacity-20 transition-all duration-200">
+                        <i class="fas fa-moon dark:hidden"></i>
+                        <i class="fas fa-sun hidden dark:block"></i>
+                    </button>
+                    
+                    <!-- CTA Button -->
+                    <button class="bg-accent hover:bg-opacity-90 text-white px-6 py-2 rounded-lg font-medium transition-all duration-200 hover:scale-105 animate-glow">
+                        Get Started Today
+                    </button>
+                </div>
+                
+                <!-- Mobile Menu Button -->
+                <button class="md:hidden p-2 rounded-lg glass-effect">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Home Section -->
+    <section id="home" class="min-h-screen flex items-center relative overflow-hidden geometric-bg">
+        <!-- Floating geometric shapes -->
+        <div class="absolute inset-0 pointer-events-none">
+            <div class="absolute top-20 left-10 w-20 h-20 border-2 border-primary/20 rounded-lg rotate-45 animate-float"></div>
+            <div class="absolute top-40 right-20 w-16 h-16 bg-secondary/10 rounded-full animate-float" style="animation-delay: -2s;"></div>
+            <div class="absolute bottom-40 left-1/4 w-12 h-12 border-2 border-accent/20 rotate-12 animate-float" style="animation-delay: -4s;"></div>
+        </div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <!-- Hero Content -->
+                <div class="animate-slide-up">
+                    <h1 class="text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+                        <span class="gradient-text">Simple Tools.</span><br>
+                        <span class="text-charcoal dark:text-white">Smoother Days.</span>
+                    </h1>
+                    <p class="text-xl text-gray-600 dark:text-gray-300 mb-8 leading-relaxed">
+                        Helping small service businesses save time with easy, affordable automation.
+                    </p>
+                    
+                    <!-- CTAs -->
+                    <div class="flex flex-col sm:flex-row gap-4 mb-12">
+                        <button class="bg-accent hover:bg-opacity-90 text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-200 hover:scale-105 hover:shadow-xl">
+                            Get Started Today
+                        </button>
+                        <button class="border-2 border-primary text-primary hover:bg-primary hover:text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-200 hover:scale-105">
+                            View Services
+                        </button>
+                    </div>
+                    
+                    <!-- Trust Indicators -->
+                    <div class="grid sm:grid-cols-3 gap-4">
+                        <div class="glass-effect rounded-lg p-4 text-center hover:scale-105 transition-transform duration-200">
+                            <i class="fas fa-map-marker-alt text-primary text-xl mb-2"></i>
+                            <p class="text-sm font-medium">Ontario-based, practical, one-on-one setup</p>
+                        </div>
+                        <div class="glass-effect rounded-lg p-4 text-center hover:scale-105 transition-transform duration-200">
+                            <i class="fab fa-google text-primary text-xl mb-2"></i>
+                            <p class="text-sm font-medium">Built on tools you already use (Google Workspace / Microsoft 365)</p>
+                        </div>
+                        <div class="glass-effect rounded-lg p-4 text-center hover:scale-105 transition-transform duration-200">
+                            <i class="fas fa-dollar-sign text-primary text-xl mb-2"></i>
+                            <p class="text-sm font-medium">Clear pricing. No surprise subscriptions.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Hero Visual -->
+                <div class="relative animate-fade-in">
+                    <div class="glass-effect rounded-2xl p-8 hover:scale-105 transition-transform duration-300">
+                        <div class="text-center">
+                            <div class="w-32 h-32 mx-auto mb-6 bg-gradient-to-br from-primary via-secondary to-accent rounded-full flex items-center justify-center">
+                                <i class="fas fa-rocket text-white text-4xl"></i>
+                            </div>
+                            <h3 class="text-2xl font-bold mb-4 gradient-text">Automation Made Simple</h3>
+                            <p class="text-gray-600 dark:text-gray-300">Transform your workflow with tools that actually work for small businesses.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Teaser -->
+    <section class="py-20 bg-white dark:bg-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4 gradient-text">Our Services</h2>
+                <p class="text-xl text-gray-600 dark:text-gray-300">Three simple solutions to streamline your business</p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Service 1 -->
+                <div class="glass-effect rounded-2xl p-8 hover:scale-105 transition-all duration-300 group">
+                    <div class="w-16 h-16 bg-gradient-to-br from-primary to-secondary rounded-xl flex items-center justify-center mb-6 group-hover:animate-bounce">
+                        <i class="fas fa-calendar-alt text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Smart Booking System Setup</h3>
+                    <p class="text-gray-600 dark:text-gray-300 mb-6">Branded form, calendar sync, auto-confirmation, simple job tracker.</p>
+                    <div class="text-3xl font-bold text-accent mb-4">$120 CAD</div>
+                    <button class="w-full bg-primary hover:bg-opacity-90 text-white py-3 rounded-lg font-medium transition-all duration-200">
+                        Learn More
+                    </button>
+                </div>
+                
+                <!-- Service 2 -->
+                <div class="glass-effect rounded-2xl p-8 hover:scale-105 transition-all duration-300 group">
+                    <div class="w-16 h-16 bg-gradient-to-br from-secondary to-accent rounded-xl flex items-center justify-center mb-6 group-hover:animate-bounce">
+                        <i class="fas fa-file-invoice-dollar text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Automated Quote & Follow-Up</h3>
+                    <p class="text-gray-600 dark:text-gray-300 mb-6">Quote tracker + polite, timed reminders so leads don't go cold.</p>
+                    <div class="text-3xl font-bold text-accent mb-4">$150 CAD</div>
+                    <button class="w-full bg-secondary hover:bg-opacity-90 text-white py-3 rounded-lg font-medium transition-all duration-200">
+                        Learn More
+                    </button>
+                </div>
+                
+                <!-- Service 3 -->
+                <div class="glass-effect rounded-2xl p-8 hover:scale-105 transition-all duration-300 group">
+                    <div class="w-16 h-16 bg-gradient-to-br from-accent to-primary rounded-xl flex items-center justify-center mb-6 group-hover:animate-bounce">
+                        <i class="fas fa-star text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Client Feedback & Reviews</h3>
+                    <p class="text-gray-600 dark:text-gray-300 mb-6">Auto thank-you + review requests when a job is marked complete.</p>
+                    <div class="text-3xl font-bold text-accent mb-4">$110 CAD</div>
+                    <button class="w-full bg-accent hover:bg-opacity-90 text-white py-3 rounded-lg font-medium transition-all duration-200">
+                        Learn More
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Pricing Note -->
+            <div class="mt-12 text-center">
+                <div class="glass-effect rounded-xl p-6 max-w-4xl mx-auto">
+                    <p class="text-lg mb-2"><strong>Total setup: $380 CAD</strong></p>
+                    <p class="text-gray-600 dark:text-gray-300">Optional tools: Zapier Starter ~$29/mo; Google Workspace ~$7–$10/mo. Free tiers used where possible.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="py-20 bg-gray-50 dark:bg-gray-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4 gradient-text">What Our Clients Say</h2>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="glass-effect rounded-2xl p-6 hover:scale-105 transition-transform duration-300" data-mock="true">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center mr-4">
+                            <span class="text-white font-bold">S</span>
+                        </div>
+                        <div>
+                            <h4 class="font-bold">Sarah M.</h4>
+                            <p class="text-sm text-gray-500">Cleaning Service Owner</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300 mb-4">"FlowSnap transformed how I handle bookings. No more double-booking headaches!"</p>
+                    <div class="flex text-accent">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div class="glass-effect rounded-2xl p-6 hover:scale-105 transition-transform duration-300" data-mock="true">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-secondary rounded-full flex items-center justify-center mr-4">
+                            <span class="text-white font-bold">M</span>
+                        </div>
+                        <div>
+                            <h4 class="font-bold">Mike R.</h4>
+                            <p class="text-sm text-gray-500">Handyman Services</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300 mb-4">"The automated follow-ups helped me close 30% more deals. Simple and effective!"</p>
+                    <div class="flex text-accent">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 3 -->
+                <div class="glass-effect rounded-2xl p-6 hover:scale-105 transition-transform duration-300" data-mock="true">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-accent rounded-full flex items-center justify-center mr-4">
+                            <span class="text-white font-bold">L</span>
+                        </div>
+                        <div>
+                            <h4 class="font-bold">Lisa K.</h4>
+                            <p class="text-sm text-gray-500">Solo Cleaner, Brampton</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300 mb-4">"Perfect for someone like me who needs mobile-friendly tools that just work!"</p>
+                    <div class="flex text-accent">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-white dark:bg-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h2 class="text-4xl font-bold mb-6 gradient-text">About FlowSnap Solutions</h2>
+                    <p class="text-lg text-gray-600 dark:text-gray-300 mb-6">
+                        We specialize in one-on-one, jargon-free setup for micro & solo service businesses across Ontario. 
+                        With a background in IT support and customer service, we understand the unique challenges faced 
+                        by small business owners.
+                    </p>
+                    <p class="text-lg text-gray-600 dark:text-gray-300 mb-8">
+                        Our focus is simple: save you time and eliminate complexity. We build automation solutions 
+                        using tools you already know and trust, ensuring you can maintain and grow your systems 
+                        without dependency on complicated software.
+                    </p>
+                    
+                    <!-- Key Points -->
+                    <div class="space-y-4">
+                        <div class="flex items-start space-x-3">
+                            <i class="fas fa-check-circle text-secondary text-xl mt-1"></i>
+                            <p>Specialized in micro & solo service businesses</p>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <i class="fas fa-check-circle text-secondary text-xl mt-1"></i>
+                            <p>Ontario-based with local business understanding</p>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <i class="fas fa-check-circle text-secondary text-xl mt-1"></i>
+                            <p>Focus on time-savings and simplicity</p>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <i class="fas fa-check-circle text-secondary text-xl mt-1"></i>
+                            <p>No jargon, just practical solutions</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Persona Callout -->
+                <div class="space-y-8">
+                    <div class="glass-effect rounded-2xl p-8 hover:scale-105 transition-transform duration-300">
+                        <div class="text-center">
+                            <div class="w-20 h-20 bg-gradient-to-br from-secondary to-accent rounded-full mx-auto mb-4 flex items-center justify-center">
+                                <i class="fas fa-user text-white text-2xl"></i>
+                            </div>
+                            <h3 class="text-xl font-bold mb-2">Meet Lisa</h3>
+                            <p class="text-gray-600 dark:text-gray-300 text-sm mb-4">Solo cleaner in Brampton</p>
+                            <p class="text-gray-600 dark:text-gray-300">
+                                Uses WhatsApp + Google Calendar and needs simple, mobile-friendly tools 
+                                that don't complicate her already busy schedule.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="glass-effect rounded-2xl p-6">
+                        <h4 class="font-bold mb-4">Why Choose FlowSnap?</h4>
+                        <ul class="space-y-2 text-gray-600 dark:text-gray-300">
+                            <li>✓ We understand your daily challenges</li>
+                            <li>✓ Setup once, benefit forever</li>
+                            <li>✓ Use familiar tools you already have</li>
+                            <li>✓ Ongoing support when you need it</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Section -->
+    <section id="blog" class="py-20 bg-gray-50 dark:bg-gray-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4 gradient-text">Latest from Our Blog</h2>
+                <p class="text-xl text-gray-600 dark:text-gray-300">Tips and insights for small business automation</p>
+            </div>
+            
+            <!-- Featured Blog Post -->
+            <div class="max-w-4xl mx-auto">
+                <article class="glass-effect rounded-2xl p-8 hover:scale-[1.02] transition-transform duration-300">
+                    <!-- Blog Header -->
+                    <div class="mb-6">
+                        <span class="inline-block bg-primary text-white px-3 py-1 rounded-full text-sm font-medium mb-4">Featured</span>
+                        <h3 class="text-3xl font-bold mb-4">3 Ways to Save Time with Automated Bookings</h3>
+                        <div class="flex items-center text-gray-500 text-sm">
+                            <i class="fas fa-calendar mr-2"></i>
+                            <span>January 15, 2024</span>
+                            <span class="mx-2">•</span>
+                            <i class="fas fa-clock mr-2"></i>
+                            <span>5 min read</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Blog Excerpt -->
+                    <div class="prose dark:prose-invert max-w-none">
+                        <p class="text-lg text-gray-600 dark:text-gray-300 mb-6">
+                            Are you tired of playing phone tag with clients or double-booking appointments? 
+                            Busy days can quickly turn chaotic when your booking system isn't working for you. 
+                            Here's why automation helps and three simple ways to get started.
+                        </p>
+                        
+                        <h4 class="text-xl font-bold mb-4">1. Use an Online Booking Form</h4>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4">
+                            Tools like Google Forms or Microsoft Forms can capture essential client information 
+                            24/7. Keep fields minimal - name, service needed, preferred dates, and contact info. 
+                            Your clients can book when it's convenient for them, not just during business hours.
+                        </p>
+                        
+                        <h4 class="text-xl font-bold mb-4">2. Sync with Your Calendar</h4>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4">
+                            Connect your forms to Google Calendar or Outlook to avoid double-booking. 
+                            If you work with partners or employees, shared calendars ensure everyone 
+                            stays on the same page without constant check-ins.
+                        </p>
+                        
+                        <h4 class="text-xl font-bold mb-4">3. Automatic Confirmations</h4>
+                        <p class="text-gray-600 dark:text-gray-300 mb-6">
+                            Use Zapier or Power Automate to send instant email or WhatsApp confirmations. 
+                            Follow up with reminders 24 hours before appointments to reduce no-shows. 
+                            Your clients feel confident, and you spend less time on administrative tasks.
+                        </p>
+                        
+                        <div class="bg-secondary/10 rounded-lg p-6 border-l-4 border-secondary">
+                            <p class="text-gray-700 dark:text-gray-300">
+                                <strong>The bottom line:</strong> Reliability builds trust with your clients. 
+                                FlowSnap Solutions can help you set up these automated systems using tools 
+                                you already have, so you can focus on what you do best.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-8 pt-6 border-t border-gray-200 dark:border-gray-700">
+                        <button class="bg-accent hover:bg-opacity-90 text-white px-6 py-3 rounded-lg font-medium transition-all duration-200 hover:scale-105">
+                            Read Full Article
+                        </button>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-white dark:bg-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-12">
+                <!-- Contact Form -->
+                <div>
+                    <h2 class="text-4xl font-bold mb-6 gradient-text">Get Started Today</h2>
+                    <p class="text-lg text-gray-600 dark:text-gray-300 mb-8">
+                        Ready to streamline your business? Let's chat about how we can help you save time and grow.
+                    </p>
+                    
+                    <form class="space-y-6" data-implementation="Form should submit to /api/contact endpoint">
+                        <div class="grid sm:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-sm font-medium mb-2" for="name">Name *</label>
+                                <input type="text" id="name" name="name" required 
+                                       class="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-200"
+                                       placeholder="Your full name" data-mock="true">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium mb-2" for="business">Business Name</label>
+                                <input type="text" id="business" name="business"
+                                       class="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-200"
+                                       placeholder="Your business name" data-mock="true">
+                            </div>
+                        </div>
+                        
+                        <div class="grid sm:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-sm font-medium mb-2" for="email">Email *</label>
+                                <input type="email" id="email" name="email" required
+                                       class="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-200"
+                                       placeholder="your@email.com" data-mock="true">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium mb-2" for="phone">Phone (Optional)</label>
+                                <input type="tel" id="phone" name="phone"
+                                       class="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-200"
+                                       placeholder="(555) 123-4567" data-mock="true">
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-medium mb-2" for="message">Message *</label>
+                            <textarea id="message" name="message" rows="5" required
+                                      class="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-200"
+                                      placeholder="Tell us about your business and what automation challenges you're facing..." data-mock="true"></textarea>
+                        </div>
+                        
+                        <button type="submit" 
+                                class="w-full bg-accent hover:bg-opacity-90 text-white py-4 rounded-lg font-semibold text-lg transition-all duration-200 hover:scale-105 hover:shadow-xl"
+                                data-event="click:handleSubmit" data-implementation="Should validate form and show success toast">
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+                
+                <!-- Contact Info & FAQ -->
+                <div class="space-y-8">
+                    <div class="glass-effect rounded-2xl p-8">
+                        <h3 class="text-2xl font-bold mb-6">Prefer Email?</h3>
+                        <div class="space-y-4">
+                            <div class="flex items-center space-x-3">
+                                <i class="fas fa-envelope text-primary text-xl"></i>
+                                <a href="mailto:adjam@flowsnap.ca" class="text-primary hover:underline">adjam@flowsnap.ca</a>
+                            </div>
+                            <div class="flex items-center space-x-3">
+                                <i class="fas fa-phone text-primary text-xl"></i>
+                                <span>555-686-5566</span>
+                            </div>
+                            <div class="flex items-center space-x-3">
+                                <i class="fas fa-map-marker-alt text-primary text-xl"></i>
+                                <span>Ontario, Canada</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Mini FAQ -->
+                    <div class="glass-effect rounded-2xl p-8">
+                        <h3 class="text-2xl font-bold mb-6">Quick Questions</h3>
+                        <div class="space-y-6">
+                            <div>
+                                <h4 class="font-semibold mb-2">How long does setup take?</h4>
+                                <p class="text-gray-600 dark:text-gray-300">Most setups are completed within 1-2 weeks, depending on complexity and your availability for testing.</p>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold mb-2">Do I need technical skills?</h4>
+                                <p class="text-gray-600 dark:text-gray-300">Not at all! We handle the technical setup and provide simple instructions for daily use.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Office Hours -->
+                    <div class="glass-effect rounded-2xl p-8">
+                        <h3 class="text-2xl font-bold mb-4">Office Hours</h3>
+                        <div class="space-y-2 text-gray-600 dark:text-gray-300">
+                            <p>Monday - Friday: 9:00 AM - 6:00 PM EST</p>
+                            <p>Saturday: 10:00 AM - 4:00 PM EST</p>
+                            <p>Sunday: Closed</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-charcoal dark:bg-black text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8">
+                <!-- Logo & Tagline -->
+                <div class="md:col-span-2">
+                    <div class="flex items-center space-x-3 mb-4">
+                        <div class="w-10 h-10 bg-gradient-to-br from-primary to-secondary rounded-lg flex items-center justify-center">
+                            <i class="fas fa-cog text-white"></i>
+                        </div>
+                        <span class="text-xl font-bold">FlowSnap Solutions</span>
+                    </div>
+                    <p class="text-gray-300 mb-4 max-w-md">
+                        Helping small service businesses save time with easy, affordable automation.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="mailto:adjam@flowsnap.ca" class="text-gray-300 hover:text-white transition-colors">
+                            <i class="fas fa-envelope text-lg"></i>
+                        </a>
+                        <a href="tel:555-686-5566" class="text-gray-300 hover:text-white transition-colors">
+                            <i class="fas fa-phone text-lg"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="font-bold mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#home" class="text-gray-300 hover:text-white transition-colors">Home</a></li>
+                        <li><a href="#about" class="text-gray-300 hover:text-white transition-colors">About</a></li>
+                        <li><a href="#services" class="text-gray-300 hover:text-white transition-colors">Services</a></li>
+                        <li><a href="#blog" class="text-gray-300 hover:text-white transition-colors">Blog</a></li>
+                        <li><a href="#contact" class="text-gray-300 hover:text-white transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Contact Info -->
+                <div>
+                    <h4 class="font-bold mb-4">Contact</h4>
+                    <div class="space-y-2 text-gray-300">
+                        <p>adjam@flowsnap.ca</p>
+                        <p>555-686-5566</p>
+                        <p>Ontario, Canada</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Copyright -->
+            <div class="border-t border-gray-700 mt-12 pt-8 text-center text-gray-400">
+                <p>&copy; 2024 FlowSnap Solutions. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Mobile Sticky CTA -->
+    <div class="fixed bottom-4 right-4 md:hidden z-50">
+        <button class="bg-accent hover:bg-opacity-90 text-white px-6 py-4 rounded-full font-medium shadow-lg hover:shadow-xl transition-all duration-200 hover:scale-110 animate-pulse">
+            <i class="fas fa-rocket mr-2"></i>
+            Get Started
+        </button>
+    </div>
+
+    <!-- Success Toast (Hidden by default) -->
+    <div id="successToast" class="fixed top-4 right-4 bg-secondary text-white px-6 py-4 rounded-lg shadow-lg transform translate-x-full transition-transform duration-300 z-50">
+        <div class="flex items-center space-x-2">
+            <i class="fas fa-check-circle"></i>
+            <span>Message sent successfully! We'll get back to you soon.</span>
+        </div>
+    </div>
+
+    <script>
+        // Dark mode toggle functionality
+        (function() {
+            const darkToggle = document.getElementById('darkToggle');
+            const html = document.documentElement;
+            
+            // Check for saved theme or default to light
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            html.classList.toggle('dark', savedTheme === 'dark');
+            
+            darkToggle.addEventListener('click', () => {
+                const isDark = html.classList.toggle('dark');
+                localStorage.setItem('theme', isDark ? 'dark' : 'light');
+            });
+        })();
+
+        // Smooth scrolling for navigation links
+        (function() {
+            const links = document.querySelectorAll('a[href^="#"]');
+            links.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const target = document.querySelector(link.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                });
+            });
+        })();
+
+        // Contact form handling
+        (function() {
+            const form = document.querySelector('form');
+            const successToast = document.getElementById('successToast');
+            
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+                
+                // TODO: Implement actual form submission to /api/contact
+                // For now, show success toast
+                successToast.classList.remove('translate-x-full');
+                
+                setTimeout(() => {
+                    successToast.classList.add('translate-x-full');
+                }, 5000);
+                
+                // Reset form
+                form.reset();
+            });
+        })();
+
+        // Intersection Observer for animations
+        (function() {
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.animationPlayState = 'running';
+                    }
+                });
+            }, observerOptions);
+            
+            // Observe animated elements
+            document.querySelectorAll('.animate-slide-up, .animate-fade-in').forEach(el => {
+                el.style.animationPlayState = 'paused';
+                observer.observe(el);
+            });
+        })();
+    </script>
+</body>
+</html>
