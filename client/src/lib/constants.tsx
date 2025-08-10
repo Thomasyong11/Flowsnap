@@ -84,6 +84,10 @@ export const trustIndicators = [
   {
     icon: "💰",
     title: "Clear pricing. No surprise subscriptions."
+  },
+  {
+    icon: "💼",
+    title: "5 Years of IT, support, and customer service experience"
   }
 ];
 
