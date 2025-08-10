@@ -90,7 +90,7 @@ export const trustIndicators = [
 export const blogPost = {
   title: "3 Ways to Save Time with Automated Bookings",
   slug: "automated-bookings-time-savers",
-  date: "January 15, 2024",
+  date: "August 05, 2025",
   readTime: "5 min read",
   excerpt: "Are you tired of playing phone tag with clients or double-booking appointments? Busy days can quickly turn chaotic when your booking system isn't working for you. Here's why automation helps and three simple ways to get started.",
   content: `
